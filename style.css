@@ -1,0 +1,754 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 20px;
+  font-size: 15px;
+}
+html {
+  margin: 0;
+  padding: 0;
+  background-color: #ffff;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.layar-dalam {
+  width: 1000px;
+  margin: auto;
+}
+.layar-penuh {
+  width: 100%;
+  margin: auto;
+}
+nav {
+  z-index: 100;
+  color: #ffff;
+  text-align: center;
+  position: fixed;
+  line-height: 60px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+nav .logo {
+  float: left;
+  position: relative;
+  line-height: 50px;
+  text-align: center;
+  margin-left: 0px;
+}
+nav .logo.img {
+  width: 120px;
+  vertical-align: middle;
+}
+nav .menu {
+  float: right;
+  height: 60px;
+  max-width: 700px;
+}
+nav menu ul {
+  padding: 0px;
+  list-style-type: none;
+  margin: 0;
+  display: flex;
+}
+nav .menu ul li {
+  list-style-type: none;
+  float: left;
+  line-height: 40px;
+}
+nav ul li a {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 0 10px 0px 10px;
+  text-decoration: none;
+}
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* profil */
+.profil {
+  display: flex;
+  margin: 10px;
+  padding: 0;
+  justify-content: center;
+}
+.card {
+  background: rgb(172, 172, 172);
+  width: 270px;
+  margin: 10px;
+  border-radius: 15px;
+}
+
+/* atur gambar card profil*/
+.profill {
+  padding: 50px;
+}
+.profil {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.font p {
+  text-align: center;
+  font-size: 30px;
+  text-decoration: solid;
+  font: bolder;
+}
+.card-image {
+  background-color: aqua;
+  height: 180px;
+  margin-bottom: 15px 15px 0 0;
+  background-size: cover;
+}
+.visi {
+  background-image: url("asset/visi.jpg");
+}
+.sejarah {
+  background-image: url("asset/sejarah.jpg");
+}
+.filosofi {
+  background-image: url("asset/filosofi.png");
+}
+.card h2 {
+  padding: 10px;
+}
+.card p {
+  padding: 10px;
+}
+.card a {
+  background-color: #c45824;
+  color: white;
+  padding: 10px 20px;
+  display: block;
+  text-align: center;
+  margin: 20px 50px;
+  border-radius: 50px;
+}
+.card:hover {
+  background-color: white;
+  cursor: pointer;
+  transform: scale(1.03);
+  transition: all ls ease;
+}
+
+/* pengaturan header */
+header {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  z-index: 2;
+}
+header video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  z-index: 2;
+  opacity: 50%;
+}
+header .intro {
+  z-index: 100;
+  color: #ffff;
+  text-align: center;
+  position: relative;
+  top: 50%;
+}
+header .intro h3 {
+  font-size: 50px;
+  margin: 0;
+  padding: 0;
+}
+.tombol {
+  background-color: #c45824;
+  height: 40px;
+  line-height: 42px;
+  color: #ffff;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0px 20px 0px 20px;
+  font-size: 15px;
+  border-radius: 4px;
+}
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  opacity: 100%;
+}
+.tombol-menu {
+  position: absolute;
+  top: 1.7rem;
+  right: 1rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+}
+.tombol-menu .garis {
+  height: 3px;
+  background-color: #ffff;
+}
+
+@media screen and (max-width: 991.98px) {
+  .layar-dalam {
+    width: 90%;
+  }
+  nav .menu ul {
+    display: none;
+    margin-top: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  nav .menu ul li {
+    width: 100%;
+    border-bottom: 1px solid #ffff;
+    background-color: #ffff;
+    line-height: 40px;
+  }
+  nav .menu ul li a {
+    color: #333;
+  }
+  .tombol-menu {
+    display: flex;
+  }
+}
+/* POPUP VISI MISI */
+.popupv {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+.popupv-content {
+  width: 50%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.25);
+  opacity: 0;
+  transition: all 0.5s 0.1s;
+}
+.popupv-img {
+  display: flex;
+  width: 50%;
+  margin-bottom: 30px;
+}
+.popupv-img img {
+  display: block;
+  width: 100%;
+}
+.popupv-header {
+  text-align: center;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 30px;
+}
+.popupv-header h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.popupv-text {
+  padding: 0 30px;
+  line-height: 1.4;
+}
+.popupv-text p:not(:last-child) {
+  margin-bottom: 16px;
+}
+#popupv:target {
+  opacity: 1;
+  visibility: visible;
+}
+#popupv:target .popupv-content {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.popupv-close:link,
+.popupv-close:visited {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  text-decoration: none;
+  color: #000;
+  font-size: 30px;
+  display: inline-block;
+  line-height: 1;
+  transition: all 0.3s;
+}
+.popupv-close:hover,
+.popupv-close:active {
+  color: rgb(56, 54, 54);
+}
+/* BATAS POPUP VISI MISI */
+
+/* POP UP SEJARAH */
+.popups {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+.popups-content {
+  width: 50%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.25);
+  opacity: 0;
+  transition: all 0.5s 0.1s;
+}
+.popups-img {
+  display: flex;
+  width: 50%;
+  margin-bottom: 30px;
+}
+.popups-img img {
+  display: block;
+  width: 100%;
+}
+.popups-header {
+  text-align: center;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 30px;
+}
+.popups-header h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.popups-text {
+  padding: 0 30px;
+  line-height: 1.4;
+}
+.popups-text p:not(:last-child) {
+  margin-bottom: 16px;
+}
+#popups:target {
+  opacity: 1;
+  visibility: visible;
+}
+#popups:target .popups-content {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.popups-close:link,
+.popups-close:visited {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  text-decoration: none;
+  color: #000;
+  font-size: 30px;
+  display: inline-block;
+  line-height: 1;
+  transition: all 0.3s;
+}
+.popups-close:hover,
+.popups-close:active {
+  color: rgb(56, 54, 54);
+}
+/* BATAS POP UP SEJARAH */
+
+/* POP UP FILOSOFI */
+.popupf {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+.popupf-content {
+  width: 50%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.25);
+  opacity: 0;
+  transition: all 0.5s 0.1s;
+}
+.popupf-img {
+  display: flex;
+  width: 50%;
+  margin-bottom: 30px;
+}
+.popupf-img img {
+  display: block;
+  width: 100%;
+}
+.popupf-header {
+  text-align: center;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 30px;
+}
+.popupf-header h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.popupf-text {
+  padding: 0 30px;
+  line-height: 1.4;
+}
+.popupf-text p:not(:last-child) {
+  margin-bottom: 16px;
+}
+#popupf:target {
+  opacity: 1;
+  visibility: visible;
+}
+#popupf:target .popupf-content {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.popupf-close:link,
+.popupf-close:visited {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  text-decoration: none;
+  color: #000;
+  font-size: 30px;
+  display: inline-block;
+  line-height: 1;
+  transition: all 0.3s;
+}
+.popupf-close:hover,
+.popupf-close:active {
+  color: rgb(56, 54, 54);
+}
+/* BATAS POP UP FILOSOFI */
+
+/* DESTINASI */
+.destinasi {
+  padding: 30px;
+}
+.jumbotron h1 {
+  text-align: center;
+}
+.jumbotron p {
+  text-align: center;
+}
+/* BATAS DESTINASI */
+
+/* galeri */
+.galeri {
+  padding: 30px;
+}
+.container {
+  width: 100%;
+  text-align: center;
+}
+h1 {
+  font-weight: normal;
+  font-size: 35px;
+  position: relative;
+  margin: 40px 0;
+}
+h1::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 3px;
+  background-color: #c45824;
+  bottom: -10px;
+  left: 50%;
+  transform: translate(-50%);
+  animation: animate 4s linear infinite;
+}
+@keyframes animate {
+  0% {
+    width: 100px;
+  }
+  50% {
+    width: 200px;
+  }
+  100% {
+    width: 100px;
+  }
+}
+.isi-galeri {
+  background-color: rgb(219, 218, 218);
+  width: 90%;
+  margin: 0 auto 30px auto;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px lightgray;
+}
+.review h3 {
+  height: 100%;
+  background-color: #c45824;
+  line-height: 50px;
+  padding: 0 50px;
+  color: white;
+}
+label {
+  display: inline-block;
+  height: 100%;
+  padding: 0 35px;
+  margin: 0 10px;
+  line-height: 50px;
+  font-size: 18px;
+  color: gray;
+  cursor: pointer;
+  transition: color 0.5s;
+}
+label:hover {
+  color: black;
+}
+.photo-galeri {
+  width: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+.pic {
+  position: relative;
+  height: 230px;
+  border-radius: 10px;
+  box-shadow: 10px lightgray;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.pic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.pic::before {
+  content: "PHOTO GALERI";
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  transform: translate(-20%, -50%);
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  font-weight: bold;
+  width: 100%;
+  margin-top: -100px;
+  opacity: 0;
+  transition: 0.3s;
+  transition-delay: 0.2s;
+  z-index: 1;
+}
+.pic:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 0;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
+}
+.pic:hover::after {
+  height: 100%;
+}
+.pic:hover::before {
+  margin-top: 0;
+  opacity: 1;
+}
+#check1:checked ~ .container .photo-galeri .pic {
+  opacity: 1;
+  transform: scale(1);
+  position: relative;
+  transition: 0.5s;
+}
+#check2:checked ~ .container .photo-galeri .Peninggalan {
+  transform: scale(1);
+  opacity: 1;
+  position: relative;
+}
+#check2:checked ~ .container .photo-galeri .Wisata,
+#check2:checked ~ .container .photo-galeri .Tradisi {
+  opacity: 0;
+  transform: scale(0);
+  position: absolute;
+  transition: 0s;
+}
+#check3:checked ~ .container .photo-galeri .Wisata {
+  transform: scale(1);
+  opacity: 1;
+  position: relative;
+}
+#check3:checked ~ .container .photo-galeri .Peninggalan,
+#check3:checked ~ .container .photo-galeri .Tradisi {
+  opacity: 0;
+  transform: scale(0);
+  position: absolute;
+  transition: 0s;
+}
+#check4:checked ~ .container .photo-galeri .Tradisi {
+  transform: scale(1);
+  opacity: 1;
+  position: relative;
+}
+#check4:checked ~ .container .photo-galeri .Peninggalan,
+#check4:checked ~ .container .photo-galeri .Wisata {
+  opacity: 0;
+  transform: scale(0);
+  position: absolute;
+  transition: 0s;
+}
+
+/* TANGGAPAN */
+.tanggapan {
+  padding: 40px;
+}
+.containert {
+  width: 100%;
+  text-align: center;
+}
+.border-bottom {
+  border-bottom: 1px solid #c45824 !important;
+}
+
+.border-light-grey {
+  border-color: #f1f1f1 !important;
+}
+
+.input {
+  text-indent: 20px;
+  padding: 8px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  width: 95%;
+}
+
+textarea {
+  overflow: auto;
+}
+
+.border {
+  border: 1px solid #c45824 !important;
+}
+.border-bottom {
+  border-bottom: 1px solid #ccc !important;
+}
+
+.border-light-grey {
+  border-color: #f1f1f1 !important;
+}
+button,
+input,
+select,
+textarea,
+optgroup {
+  font: inherit;
+  margin: 0;
+}
+
+.slideshow-review {
+  position: relative;
+  background: lightgray;
+}
+
+.mySlides {
+  display: none;
+  padding: 30px;
+  text-align: center;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -30px;
+  padding: 16px;
+  color: #c45824;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  position: absolute;
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev {
+  position: absolute;
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+.dot-review {
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 10px;
+  background: #c45824;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #ffff;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+q {
+  font-style: italic;
+}
+
+.author {
+  color: #f04949;
+}
+
+/* TEAM */
+
+.footer {
+  background-color: #c45824;
+  text-align: center;
+}
